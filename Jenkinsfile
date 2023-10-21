@@ -7,9 +7,10 @@ pipeline {
     stage("build") {
       
       steps {
-        echo 'building the app'
+        echo 'started build'
         withMaven(maven: 'Maven-3.9.1') {
-          bat 'mvn install'
+           echo 'Inside withMaven'
+           bat 'mvn --debug install'
         }
       }
     }
