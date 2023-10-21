@@ -1,6 +1,10 @@
 pipeline {
   
   agent any
+
+  tools {
+    maven 'Maven-3.9.1'
+  }
   
   stages {
     
@@ -8,10 +12,7 @@ pipeline {
       
       steps {
         echo 'started build'
-        withMaven(maven: 'Maven-3.9.1') {
-           echo 'Inside withMaven'
-           bat 'mvn --debug install'
-        }
+        bat 'mvn --debug install'
       }
     }
     stage("test") {
