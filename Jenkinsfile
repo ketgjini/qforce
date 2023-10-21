@@ -8,7 +8,9 @@ pipeline {
       
       steps {
         echo 'building the app'
-        echo 'app built successfully'
+        withMaven(maven: 'Maven-3.9.1') {
+          bat "mvn clean install"
+        }  
       }
     }
     stage("test") {
