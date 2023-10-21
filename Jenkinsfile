@@ -8,8 +8,8 @@ pipeline {
       
       steps {
         echo 'building the app'
-        withMaven(maven: 'Maven-3.9.1') {
-          bat "mvn clean install"
+        withMaven(maven:'Maven-3.9.1') {
+          sh 'mvn clean package'
         }  
       }
     }
