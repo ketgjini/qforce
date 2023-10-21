@@ -12,7 +12,7 @@ pipeline {
       
       steps {
         echo 'started build'
-        bat 'mvn --debug install'
+        sh 'mvn --debug install'
       }
     }
     stage("test") {
