@@ -1,3 +1,4 @@
+def grv
 pipeline {
   agent any
   
@@ -6,7 +7,13 @@ pipeline {
   }
   
   stages {
-    
+    stage("init") {
+      steps {
+        script {
+          grv = load "script.groovy"
+        }
+      }
+    }
     stage("build") {
       when {
         expression {
@@ -14,8 +21,9 @@ pipeline {
         }
       }
       steps {
-        echo 'started build'
-        sh 'mvn --debug install'
+        script {
+          grv.buildApp()
+        }
       }
     }
     stage("test") {
@@ -25,7 +33,9 @@ pipeline {
         }
       }
       steps {
-        echo 'testing the app'
+        script {
+          grv.testApp()
+        }
       }
     }
     stage("deploy") {
@@ -35,7 +45,9 @@ pipeline {
         }
       }
       steps {
-        echo 'deploying the app'
+        script {
+          grv.deployApp()
+        }
       }
     }
   }
