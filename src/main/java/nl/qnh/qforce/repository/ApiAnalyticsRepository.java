@@ -13,12 +13,6 @@ import java.util.Optional;
 public interface ApiAnalyticsRepository extends JpaRepository<Analytics, Integer> {
 
     /**
-     * Method to save api call data in DB
-     * @param analytics
-     */
-    void save(Analytics analytics);
-
-    /**
      * Method to find Api Analytics by ID
      * @param analyticsId
      * @return
