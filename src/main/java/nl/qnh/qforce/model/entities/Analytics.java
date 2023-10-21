@@ -2,7 +2,7 @@ package nl.qnh.qforce.model.entities;
 
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Analytics entity class
